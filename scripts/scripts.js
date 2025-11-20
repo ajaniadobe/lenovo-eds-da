@@ -144,6 +144,17 @@ async function loadEager(doc) {
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
   }
+  //ADDED for Themeing
+  const theme = getMetadata('theme') || 'us';
+  document.body.classList.add(`theme-${theme}`);
+  // If you want separate CSS:
+  if (theme !== 'us') {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `/styles/styles-${theme}.css`;
+    document.head.appendChild(link);
+  }
+
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
