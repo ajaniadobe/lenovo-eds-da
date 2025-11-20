@@ -1,3 +1,7 @@
-body.theme-ca {
-  background-color: grey;
+:root {
+  /* colors */
+  --background-color: grey;
+}
+body {
+  background-color: --background-color;
 }
